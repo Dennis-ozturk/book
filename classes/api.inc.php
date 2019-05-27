@@ -29,8 +29,24 @@ class Api
         }
     }
 
-    public function payment()
+    public function insertStripeUser($user_info)
     {
-        
+        $stmt = $this->db->prepare('INSERT INTO customer(firstname, lastname, email, address, state, zip, country, phone) VALUES (:firstname, :lastname, :email, :address, :state, :zip, :country, :phone)');
+        foreach ($user_info as $key => $value) {
+            if ($key === 'zip') {
+                $stmt->bindValue(':' . $key, $value, PDO::PARAM_INT);
+            } else {
+                $stmt->bindValue(':' . $key, $value, PDO::PARAM_STR);
+            }
+        }
+
+        if($stmt->execute()){
+            echo("Success");
+        }else {
+            echo("Something went wrong");
+        }
     }
+
+    public function payment()
+    { }
 }

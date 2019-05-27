@@ -16,7 +16,16 @@ if (isset($_SESSION['user'])) {
             <!-- Used to display form errors -->
             <div id="card-errors"></div>
         </div>
-        <button>Submit Payment</button>
+        <input type="text" name="firstname" placeholder="firstname"><br>
+        <input type="text" name="lastname" placeholder="lastname"><br>
+        <input type="email" name="email" placeholder="email"><br>
+        <input type="text" name="address" placeholder="address"><br>
+        <input type="text" name="state" placeholder="state"><br>
+        <input type="text" name="zip" placeholder="zip"><br>
+        <input type="text" name="country" placeholder="country"><br>
+        <input type="text" name="phone" placeholder="phone"><br>
+
+        <button name="pay">Submit Payment</button>
     </form>
 <?php
 }
