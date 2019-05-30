@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require_once('db/db.php');
 require_once('classes/user.inc.php');
@@ -69,10 +70,9 @@ $checkCustomer = $customer->checkCustomerExists($customerData);
 
 $checkTransfer = $transaction->addTransaction($transactionData);
 
-if($checkCustomer == false){
+if ($checkCustomer == false) {
     $transaction->addTransaction($transactionData);
-
-}elseif(!$checkCustomer == false){
+} elseif (!$checkCustomer == false) {
     $transactionData2 = [
         'id' => $charge->id,
         'customer_id' => $checkCustomer,
@@ -82,10 +82,9 @@ if($checkCustomer == false){
         'status' => $charge->status,
     ];
     $transaction->addTransaction($transactionData2);
-}else {
-}
+} else { }
 
-
-
-//Send to success page
-//header('Location: success.php?tid=' . $charge->id . '&product=' . $charge->description);
+$_SESSION['charge_id'] = $charge->id;
+$_SESSION['charge_description'] = $charge->description;
+$_SESSION['filename'] = $_FILES['books_file']['name'];
+require_once('csv.php');
