@@ -7,6 +7,9 @@ class DB
     private $dbname = "books";
     private $charset = "utf8";
 
+    private $stmt;
+    private $error;
+
     protected $conn;
 
     public function __construct()

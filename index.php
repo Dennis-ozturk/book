@@ -8,6 +8,14 @@ if (isset($_SESSION['user'])) {
     ?>
 
     <form action="charge.php" method="post" id="payment-form">
+        <input type="text" name="firstname" placeholder="firstname"><br>
+        <input type="text" name="lastname" placeholder="lastname"><br>
+        <input type="text" name="address" placeholder="address"><br>
+        <input type="text" name="state" placeholder="state"><br>
+        <input type="text" name="zip" placeholder="zip"><br>
+        <input type="text" name="country" placeholder="country"><br>
+        <input type="text" name="phone" placeholder="phone"><br>
+        
         <div class="form-row">
             <label for="card-element">Credit or debit card</label>
             <div id="card-element">
@@ -16,15 +24,6 @@ if (isset($_SESSION['user'])) {
             <!-- Used to display form errors -->
             <div id="card-errors"></div>
         </div>
-        <input type="text" name="firstname" placeholder="firstname"><br>
-        <input type="text" name="lastname" placeholder="lastname"><br>
-        <input type="email" name="email" placeholder="email"><br>
-        <input type="text" name="address" placeholder="address"><br>
-        <input type="text" name="state" placeholder="state"><br>
-        <input type="text" name="zip" placeholder="zip"><br>
-        <input type="text" name="country" placeholder="country"><br>
-        <input type="text" name="phone" placeholder="phone"><br>
-
         <button name="pay">Submit Payment</button>
     </form>
 <?php

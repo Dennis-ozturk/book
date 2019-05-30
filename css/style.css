@@ -17,6 +17,19 @@
     background-color: #fefde5 !important;
 }
 
-#payment-form{
+#payment-form, #payment-form input{
     width:450px;
+}
+
+#payment-form input{
+   height: 35px;
+   border-radius: 8px;
+   border: 1px solid transparent;
+   box-shadow: 0 1px 3px 0 #747474;
+   margin-top: 5px;
+   margin-bottom: 10px;
+}
+
+#payment-form input::placeholder{
+    padding-left: 10px;
 }
